@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CADASTRO DE PRODUTO</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Cadastro de Produtos</h1>
+        <form th:object="${produto}" method="post" th:action="@{/cadastro}">
+            <label for="nome">Nome:</label>
+            <input th:field="*{nome}" type="text" id="nome" placeholder="Digite o nome:" required>
+
+            <label for="preco">Preço:</label>
+            <input  th:field="*{preco}" type="text" id="preco" placeholder="Digite o preço:" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <a th:href="@{/}">Voltar para Lista de Produtos</a>
+    </div>
 </body>
 </html>
